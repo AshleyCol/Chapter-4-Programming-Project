@@ -1,34 +1,54 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 int main()
 {
-    float weight = 20;
-    int distance = 0;
+	int shape = 0;
+	float value1 = 0;
+	float value2 = 0;
 
-    cout << "How much does the package weigh? (kg)\n";
-    cin >> weight;
-    if (weight <= 0 or weight > 20) {
-        cout << "weight is not within restrictions";
-        return 0;
-    }
-    cout << "How far are you shipping it? (miles)\n";
-    cin >> distance;
-    if (distance < 20 or distance > 3000) {
-        cout << "distance is not within restrictions";
-        return 0;
-    }
-    if (weight <= 2)
-        cout << "the price is $" << 1.10 * (distance / 500);
-    else
-        if (weight < 6)
-            cout << "the price is $" << 2.20 * (distance / 500);
-        else
-            if (weight < 10)
-                cout << "the price is $" << 3.70 * (distance / 500);
-            else
-                cout << "the price is $" << 4.80 * (distance / 500);
 
-    return 0;
+	cout << "Geometry Calculator\n	1. Calculate the Area of a Circle\n	2. Calculate the Area of a Rectangle\n	3. Calculate the Area of a Triangle\n	4. Quit\n	Enter your choice(1-4) :";
+	cin >> shape;
+	if (shape > 4 || shape < 1)
+		cout << "Error, please input a valid option";
+	if (shape == 1) {
+		cout << "What is the radius of the circle?\n";
+		cin >> value1;
+		if (value1 <= 0) {
+			cout << "not a valid input";
+			return 0;
+		}
+		cout << "The area of the circle is " << 3.14159 * pow(value1, 2);
+	}
+	if (shape == 2) {
+		cout << "What is the height of the rectangle?\n";
+		cin >> value1;
+		cout << "What is the width of the rectangle?\n";
+		cin >> value2;
+		if (value1 <= 0 || value2 <= 0) {
+			cout << "not a valid input";
+			return 0;
+		}
+		cout << "The area of the rectangle is " << value1 * value2;
+	}
+	if (shape == 3) {
+		cout << "What is the base of the triangle?\n";
+		cin >> value1;
+		cout << "What is the height of the triangle?\n";
+		cin >> value2;
+		if (value1 <= 0 || value2 <= 0) {
+			cout << "not a valid input";
+			return 0;
+		}
+		cout << "The area of the triangle is " << (value1 * value2) / 2;
+	}
+	if (shape == 4) {
+		cout << "quitting program...";
+		return 0;
+	}
+
+	return 0;
 }
